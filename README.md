@@ -1,5 +1,5 @@
 # GCD-Program
-![image](./logo.gif)
+![image.gif](http://images0.cnblogs.com/blog2015/607542/201505/191755367606422.gif)
 
 http://home.cnblogs.com/u/YouXianMing/
 
