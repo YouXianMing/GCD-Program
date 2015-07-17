@@ -38,7 +38,9 @@
 #pragma 初始化以及释放
 - (instancetype)init;
 - (instancetype)initSerial;
+- (instancetype)initSerialWithLabel:(NSString *)label;
 - (instancetype)initConcurrent;
+- (instancetype)initConcurrentWithLabel:(NSString *)label;
 
 #pragma 用法
 - (void)execute:(dispatch_block_t)block;

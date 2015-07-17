@@ -91,11 +91,31 @@ static GCDQueue *backgroundPriorityGlobalQueue;
     return self;
 }
 
+- (instancetype)initSerialWithLabel:(NSString *)label {
+
+    self = [super init];
+    if (self)
+    {
+        self.dispatchQueue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_SERIAL);
+    }
+    
+    return self;
+}
+
 - (instancetype)initConcurrent {
     self = [super init];
     if (self)
     {
         self.dispatchQueue = dispatch_queue_create(nil, DISPATCH_QUEUE_CONCURRENT);
+    }
+    return self;
+}
+
+- (instancetype)initConcurrentWithLabel:(NSString *)label {
+    self = [super init];
+    if (self)
+    {
+        self.dispatchQueue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
 }
