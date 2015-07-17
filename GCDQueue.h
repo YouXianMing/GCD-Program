@@ -23,7 +23,7 @@
 + (GCDQueue *)lowPriorityGlobalQueue;
 + (GCDQueue *)backgroundPriorityGlobalQueue;
 
-#pragma 便利的构造方法
+#pragma mark - 便利的构造方法
 + (void)executeInMainQueue:(dispatch_block_t)block;
 + (void)executeInGlobalQueue:(dispatch_block_t)block;
 + (void)executeInHighPriorityGlobalQueue:(dispatch_block_t)block;
@@ -35,14 +35,14 @@
 + (void)executeInLowPriorityGlobalQueue:(dispatch_block_t)block afterDelaySecs:(NSTimeInterval)sec;
 + (void)executeInBackgroundPriorityGlobalQueue:(dispatch_block_t)block afterDelaySecs:(NSTimeInterval)sec;
 
-#pragma 初始化以及释放
+#pragma mark - 初始化以及释放
 - (instancetype)init;
 - (instancetype)initSerial;
 - (instancetype)initSerialWithLabel:(NSString *)label;
 - (instancetype)initConcurrent;
 - (instancetype)initConcurrentWithLabel:(NSString *)label;
 
-#pragma 用法
+#pragma mark - 用法
 - (void)execute:(dispatch_block_t)block;
 - (void)execute:(dispatch_block_t)block afterDelay:(int64_t)delta;
 - (void)waitExecute:(dispatch_block_t)block;
@@ -51,7 +51,7 @@
 - (void)suspend;
 - (void)resume;
 
-#pragma 与GCDGroup相关
+#pragma mark - 与GCDGroup相关
 - (void)execute:(dispatch_block_t)block inGroup:(GCDGroup *)group;
 - (void)notify:(dispatch_block_t)block inGroup:(GCDGroup *)group;
 
