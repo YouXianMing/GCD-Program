@@ -17,11 +17,11 @@
 
 @property (strong, readonly, nonatomic) dispatch_source_t dispatchSource;
 
-#pragma 初始化以及释放
+#pragma mark - 初始化以及释放
 - (instancetype)init;
 - (instancetype)initInQueue:(GCDQueue *)queue;
 
-#pragma 用法
+#pragma mark - 用法
 - (void)event:(dispatch_block_t)block timeInterval:(uint64_t)interval;
 - (void)start;
 - (void)destroy;

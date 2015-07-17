@@ -15,10 +15,10 @@
 
 @property (strong, nonatomic, readonly) dispatch_group_t dispatchGroup;
 
-#pragma 初始化以及释放
+#pragma mark - 初始化以及释放
 - (instancetype)init;
 
-#pragma 用法
+#pragma mark - 用法
 - (void)enter;
 - (void)leave;
 - (void)wait;
