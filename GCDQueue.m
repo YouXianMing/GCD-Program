@@ -91,12 +91,14 @@ static GCDQueue *backgroundPriorityGlobalQueue;
     return self;
 }
 
-- (instancetype)initSerialWithLabel:(const char *label) {
+- (instancetype)initSerialWithLabel:(NSString *)label {
+
     self = [super init];
     if (self)
     {
-        self.dispatchQueue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
+        self.dispatchQueue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_SERIAL);
     }
+    
     return self;
 }
 
@@ -109,11 +111,11 @@ static GCDQueue *backgroundPriorityGlobalQueue;
     return self;
 }
 
-- (instancetype)initConcurrentWithLabel:(const char *label) {
+- (instancetype)initConcurrentWithLabel:(NSString *)label {
     self = [super init];
     if (self)
     {
-        self.dispatchQueue = dispatch_queue_create(label, DISPATCH_QUEUE_CONCURRENT);
+        self.dispatchQueue = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
 }
