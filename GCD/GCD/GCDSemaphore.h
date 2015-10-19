@@ -19,7 +19,7 @@
 - (instancetype)init;
 - (instancetype)initWithValue:(long)value;
 
-#pragma 用法
+#pragma mark - 用法
 - (BOOL)signal;
 - (void)wait;
 - (BOOL)wait:(int64_t)delta;

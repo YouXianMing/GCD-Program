@@ -18,7 +18,7 @@
 #pragma 初始化
 - (instancetype)init;
 
-#pragma 用法
+#pragma mark - 用法
 - (void)enter;
 - (void)leave;
 - (void)wait;
