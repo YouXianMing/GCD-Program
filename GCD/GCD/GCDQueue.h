@@ -35,7 +35,7 @@
 + (void)executeInLowPriorityGlobalQueue:(dispatch_block_t)block afterDelaySecs:(NSTimeInterval)sec;
 + (void)executeInBackgroundPriorityGlobalQueue:(dispatch_block_t)block afterDelaySecs:(NSTimeInterval)sec;
 
-#pragma 初始化以及释放
+#pragma 初始化
 - (instancetype)init;
 - (instancetype)initSerial;
 - (instancetype)initConcurrent;
@@ -43,6 +43,7 @@
 #pragma 用法
 - (void)execute:(dispatch_block_t)block;
 - (void)execute:(dispatch_block_t)block afterDelay:(int64_t)delta;
+- (void)execute:(dispatch_block_t)block afterDelaySecs:(float)delta;
 - (void)waitExecute:(dispatch_block_t)block;
 - (void)barrierExecute:(dispatch_block_t)block;
 - (void)waitBarrierExecute:(dispatch_block_t)block;

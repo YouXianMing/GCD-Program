@@ -1,5 +1,5 @@
 //
-//  GCDGroup.h
+//  GCDSemaphore.h
 //  GCD
 //
 //  http://home.cnblogs.com/u/YouXianMing/
@@ -11,16 +11,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GCDGroup : NSObject
+@interface GCDSemaphore : NSObject
 
-@property (strong, nonatomic, readonly) dispatch_group_t dispatchGroup;
+@property (strong, readonly, nonatomic) dispatch_semaphore_t dispatchSemaphore;
 
-#pragma 初始化以及释放
+#pragma 初始化
 - (instancetype)init;
+- (instancetype)initWithValue:(long)value;
 
 #pragma 用法
-- (void)enter;
-- (void)leave;
+- (BOOL)signal;
 - (void)wait;
 - (BOOL)wait:(int64_t)delta;
 

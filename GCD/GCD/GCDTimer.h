@@ -17,7 +17,7 @@
 
 @property (strong, readonly, nonatomic) dispatch_source_t dispatchSource;
 
-#pragma 初始化以及释放
+#pragma 初始化
 - (instancetype)init;
 - (instancetype)initInQueue:(GCDQueue *)queue;
 
@@ -25,6 +25,5 @@
 - (void)event:(dispatch_block_t)block timeInterval:(uint64_t)interval;
 - (void)start;
 - (void)destroy;
-
 
 @end
