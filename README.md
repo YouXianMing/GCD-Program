@@ -1,51 +1,17 @@
 # GCD-Program
-![image.gif](http://images0.cnblogs.com/blog2015/607542/201505/191755367606422.gif)
 
-[swift版本GCD](https://github.com/YouXianMing/Swift-GCD)
+* [swift版本GCD](https://github.com/YouXianMing/Swift-GCD)
 
-
-> Normal use
 
 ```
-    [GCDQueue executeInGlobalQueue:^{
-        
-        // download task, etc
-        
-        [GCDQueue executeInMainQueue:^{
-            
-            // update UI
-        }];
-    }];
-```
+//
+//  ViewController.m
+//  GCD
+//
+//  Created by YouXianMing on 15/10/19.
+//  Copyright © 2015年 ZiPeiYi. All rights reserved.
+//
 
-> Use group
-
-```
-    // init group
-    GCDGroup *group = [GCDGroup new];
-    
-    
-    // add to group
-    [[GCDQueue globalQueue] execute:^{
-        // task one
-    } inGroup:group];
-    
-    
-    // add to group
-    [[GCDQueue globalQueue] execute:^{
-        // task two
-    } inGroup:group];
-
-    
-    // notify in mainQueue
-    [[GCDQueue mainQueue] notify:^{
-        // task three
-    } inGroup:group];
-```
-
-> Timer
-
-```
 #import "ViewController.h"
 #import "GCD.h"
 
@@ -58,8 +24,43 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-
+    
+    [GCDQueue executeInGlobalQueue:^{
+        
+        // download task, etc
+        
+        [GCDQueue executeInMainQueue:^{
+            
+            // update UI
+        }];
+    }];
+    
+    
+    
+    
+    // init group
+    GCDGroup *group = [GCDGroup new];
+    
+    // add to group
+    [[GCDQueue globalQueue] execute:^{
+        // task one
+    } inGroup:group];
+    
+    // add to group
+    [[GCDQueue globalQueue] execute:^{
+        // task two
+    } inGroup:group];
+    
+    // notify in mainQueue
+    [[GCDQueue mainQueue] notify:^{
+        // task three
+    } inGroup:group];
+    
+    
+    
+    
     // init timer
     self.timer = [[GCDTimer alloc] initInQueue:[GCDQueue mainQueue]];
     
@@ -70,32 +71,27 @@
     
     // start timer
     [self.timer start];
-}
-
-@end
-```
-
-
-
-> Use semaphore
-
-```
+    
+    
+    
+    
     // init semaphore
     GCDSemaphore *semaphore = [GCDSemaphore new];
     
-    
     // wait
     [GCDQueue executeInGlobalQueue:^{
-        [semaphore wait];
         
+        [semaphore wait];
         // todo sth else
     }];
     
-    
     // signal
     [GCDQueue executeInGlobalQueue:^{
-        // do sth
         
+        // do sth
         [semaphore signal];
     }];
+}
+
+@end
 ```
