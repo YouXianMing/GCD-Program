@@ -1,6 +1,6 @@
 # GCD-Program
 
-需要swift版本的GCD的请移步-[swift版本GCD](https://github.com/YouXianMing/Swift-GCD)
+需要swift版本GCD的请移步-[swift版本GCD](https://github.com/YouXianMing/Swift-GCD)
 
 ```
 //
