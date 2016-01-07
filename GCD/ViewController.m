@@ -39,17 +39,23 @@
     
     // add to group
     [[GCDQueue globalQueue] execute:^{
+        
         // task one
+        
     } inGroup:group];
     
     // add to group
     [[GCDQueue globalQueue] execute:^{
+        
         // task two
+        
     } inGroup:group];
     
     // notify in mainQueue
     [[GCDQueue mainQueue] notify:^{
+        
         // task three
+        
     } inGroup:group];
     
     
@@ -60,8 +66,10 @@
     
     // timer event
     [self.timer event:^{
+        
         // task
-    } timeInterval:NSEC_PER_SEC * 3];
+        
+    } timeInterval:NSEC_PER_SEC * 3 delay:NSEC_PER_SEC * 3];
     
     // start timer
     [self.timer start];
@@ -76,6 +84,7 @@
     [GCDQueue executeInGlobalQueue:^{
         
         [semaphore wait];
+        
         // todo sth else
     }];
     
